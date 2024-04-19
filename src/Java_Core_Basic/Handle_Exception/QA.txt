@@ -1,0 +1,26 @@
+
+
+1. Throw và throws:
+
+    Throw:
+    - Dc sử dụng để ném ra 1 exception cụ thể.
+    - Theo sau từ khóa throw là 1 instance của Exception.
+    - Throw dc dùng bên trong method.
+
+    Throws:
+    - Dc sử dụng để khai báo các exceptions có thể ném ra bởi method.
+    - Theo sau throws là tên class của các exceptions.
+    - Throws dc viết trên phần khai báo phương thức.
+
+2. Checked và unchecked exception:
+
+    - Checked exception: là những exception phát sinh trong quá trinh compile. Trong số tất cả những lớp kế thừa exception, ngoại trừ
+    RuntimeException còn lại đều là checked exception.
+    - Unchecked exception: là những exception phát sinh trong quá trình runtime.
+
+3. Try-catch, try with resource:
+    - Try-catch dc sử dụng để xử lý ngoại lệ thông thường, try with resource dc sử dụng với các tài nguyên (resource)
+    mà cần phải dc giải phóng sau khi sử dụng xong (file reading, socket, DB connection ...).
+    - Với try-catch thông thường, tài nguyên cần phải đóng thủ công, thông thường bên trong finally.
+
+4. Để tạo 1 custom exception, cần tạo 1 lớp kế thừa lớp exception hoặc các lớp con của nó phụ thuộc vào lỗi có thể phát sinh.

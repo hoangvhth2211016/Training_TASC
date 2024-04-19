@@ -1,0 +1,62 @@
+
+
+1. Các tính chất của lập trình hướng đối tượng (OOP):
+
+    4 tính chất chính của OOP:
+    - Tính đóng gói (encapsulation): là việc đóng gói các biến, phương thức trong 1 unit (class, package...)
+    và dc cấp quyền truy cập thông qua access modifier, giúp che giấu thông tin khỏi sự tác động từ bên ngoài, đảm bảo sự toàn vẹn dữ liệu.
+    - Tính kế thừa (inheritance): các class có thể kế thừa các thuộc tính, phương thức từ class khác mà ko cần phải xây dựng lại từ đâu
+    - Tính trừu tượng (abstraction): là việc biểu diễn các đối tượng 1 cách đơn giản, trừu tượng hóa mà ko cần đi sâu vào việc
+    mô tả quá chi tiết đối tượng đó, giúp cho việc phát triển trở nên linh hoạt, dễ mở rộng, dễ bảo trì hơn.
+    - Tính đa hình (polymorphism): là việc các đối tượng thuộc cùng 1 lớp hoặc kế thừa cùng 1 lớp có thể thực thi các chức năng giống nhau
+    theo các cách khác nhau. Tính đa hình có thể đạt dc thông qua method overloading và method overriding.
+
+2. Access modifier:
+
+    Có 4 loại access modifier trong java:
+    - public: có thể truy cập từ bất kỳ đâu trong chương trình.
+    - private: chỉ cho phép truy cập bên trong class.
+    - protected: chỉ có thể truy cập bên trong class và các class kế thừa từ class đó.
+    - default: chỉ cho phép truy cập khi bên trong cùng 1 package.
+
+3. Abstract và interface:
+
+    Abstract:
+    - Là 1 lớp trừu tượng cho phép định nghĩa 1 cách khái quát về các đối tượng, tạo ra 1 khuôn mẫu cơ sở cho các lớp con.
+    - 1 lớp abstract ko thể tạo 1 đối tượng trực tiếp từ chính nó mà thông qua các lớp con dc kế thừa trực tiếp từ lớp đó.
+    - Nó có thể chứa các phương thức trừu tượng (abstract method), các phương thức cụ thể (concrete method)
+    và các thuộc tính (attribute).
+    - Các phương thức trừu tượng ko có thân và phải dc khai báo cũng như triển khai trong các lớp con kế thừa lớp abstract đó.
+    - 1 lớp chỉ có thể kế thừa duy nhất 1 lớp abstract.
+
+    Interface:
+    - Là 1 bản mẫu có thể dùng để triển khai 1 lớp, mô tả khái quát những hành vi của các đối tượng ứng dụng nó.
+    - Chỉ bao gồm các phương thức trừu tượng (abstract method), các phương thức default, static và các hằng số (static final).
+    - Interface ko phải là 1 đối tượng và ko thể khởi tạo, nhưng có thể khởi tạo bằng các lớp có triển khai interface đấy.
+    - Cung cấp các chức năng chung cho các lớp ko liên quan.
+    - 1 lớp có thể kế thừa nhiều interface.
+
+4. Overriding và overloading:
+
+    - Override là việc định nghĩa lại hay định nghĩa chi tiết các phương thức dc kế thừa từ lớp cha hoặc interface.
+    - Overload là việc định nghĩa các phương thức có tên giông nhau nhưng khác nhau về tham số.
+
+5. Một function có access modifier là private hoặc static ko thể override.
+    - 1 phương thức private chỉ có thể truy cập từ bên trong lớp đó và nên ko thể override từ các lớp con.
+    - 1 phương thức static là phương thức thuộc về duy nhất lớp chứa nó dù có thể truy cập dc từ lớp con. Việc tạo ra 1 phương thức
+    ở lớp con trùng tên thực chất ko override lại phương thức đó mà tạo 1 phương thức static khác thuộc về lớp con đó.
+
+6. Một phương thức final ko thể dc kế thừa.
+
+7. This và super:
+
+    Từ khóa this tham chiếu đến đối tượng của lớp đó. This có thể dc dùng theo các cách:
+    - tham chiếu tới biến của lớp hiện tại.
+    - Gọi phương thức của lớp hiện tại.
+    - Gọi constructor của lớp hiện tại.
+    - Trả về instance của lớp đó.
+    - Truyền như 1 tham số trong phương thức.
+    - Truyền như 1 tham số trong constructor.
+
+    Từ khóa super tham chiếu trực tiếp tới lớp cha gần nhất. Bất cứ khi nào 1 instance của lớp con dc tạo ra, 1 instance của lớp cha
+    dc tạo ra thông qua tham chiếu từ super. Super có thể dùng để gọi trực tiếp constructor, methods hay fields của lớp cha gần nhất.

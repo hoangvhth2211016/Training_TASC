@@ -1,0 +1,26 @@
+
+
+1. Các đặc điểm và tính chất của string trong java:
+
+    - String là 1 object biểu diễn 1 chuỗi các giá trị char.
+    - String tạo ra được lưu trữ trong vùng nhớ string pool.
+    - String không thể thay đổi (immutable). Bất cứ sự thay đổi chuỗi string đều sẽ tạo ra 1 đối tượng mới.
+    Có thể sử dụng các lớp StringBuffer và String Builder để thay đổi đối tượng string hiện tại.
+
+2. Các cách khởi tạo string:
+
+    - Sử dụng string literal (String str = "..."). Khi sử dụng string literal sẽ ko tạo ra 2 đối tượng riêng biệt nếu giống nhau.
+    - Sử dụng từ khóa new (String str = new String("...")). Khi sử dụng từ khóa new sẽ tạo ra 2 đối tượng riêng biệt dc lưu trong heap.
+
+3. String pool:
+
+    - String pool là 1 vùng nhớ đặc biệt trong heap dùng để lưu trữ string, giúp tối ưu hóa việc lưu trữ, tránh tình trạng tràn bộ nhớ.
+
+4. So sánh string:
+
+    - Sử dụng phương thức equals của lớp String (trả về giá trị true, false)
+    - Sử dụng phương thức compareTo (trả về 0 nếu giống nhau, trả về khác 0 nếu khác nhau)
+    - Toán tử == có thể dc sử dụng để so sánh 2 string khác nhau nhưng có thể nhận dc kết quả ko chính xác vì nếu 2 đối tượng có giá trị giống nhau
+    nhưng trỏ đến 2 đối tượng khác nhau, giá trị trả về sẽ là false. VD: nếu 2 string giống nhau dc tạo ra sử dụng string literal, 2 cả 2 sẽ cùng trỏ
+    tới 1 đối tượng dc lưu trong string pool, kết quả trả về là true, nếu 1 string dc tạo ra bằng string literal, 1 tạo ra bằng new, kết quả trả về là false
+    vì trỏ tới 2 đối tượng khác nhau trong vùng nhớ.

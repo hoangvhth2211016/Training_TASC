@@ -1,0 +1,31 @@
+
+
+1. Cấp phát tĩnh và cấp phát động:
+
+    Cấp phát tĩnh:
+    - Là việc cấp phát bộ nhớ cho biến static và biến toàn cục trong quá trình biên dịch (compile time).
+    - Biến dc cấp phát tĩnh tồn tại trong suốt quá trình chạy của chương trình.
+    - Kích thước của biến phải dc khai báo tại thời điểm compile.
+
+    Cấp phát động:
+    - Là việc cấp phát bộ nhớ cho các biến trong thời gian chạy của chương trình (run time).
+    - Biến dc cấp phát động có thể dc cấp và giải phóng khi cần thiết.
+
+
+2. Bộ nhớ heap và bộ nhớ stack:
+
+    Bộ nhớ heap:
+    - Là bộ nhớ dc sử dụng để cấp phát bộ nhớ cho các đối tượng và String. Bất cứ khi nào 1 đối tượng dc tạo ra,
+    nó sẽ dc lưu vào bộ nhớ heap và sẽ dc loại bỏ khỏi bộ nhớ khi ko còn tham chiếu nào tới nó nữa.
+    - Ko lưu trữ dữ liệu theo mô hình nào.
+    - Truy cập vào bộ nhớ heap chậm hơn so với stack.
+    - Có kích thước lớn hơn stack.
+    - Dc chia sẻ chung với tất cả cá thread -> ko threadsafe.
+
+    Bộ nhớ stack:
+    - Dc dùng để lưu trữ các biến cục bộ, biến tham chiếu và các tham số của phương thức mỗi khi phương thức đó dc gọi ra
+    và sẽ dc giải phóng khi phương thức kết thúc quá trình.
+    - Dc lưu trữ theo kiểu stack (LIFO - Last in first out).
+    - Truy cập vào bộ nhớ stack nhanh hơn bộ nhớ heap.
+    - Có kích thước nhỏ hơn bộ nhớ heap.
+    - Mỗi thread có 1 stack riêng biệt -> threadsafe.

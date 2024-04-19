@@ -1,5 +1,7 @@
 package Java_Core_Basic.DataType;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main (String[] args){
     
@@ -44,17 +46,31 @@ public class Main {
         System.out.println("Object reference: "+objRef);
         
         // so sánh:
-        // có thể so sánh kiểu dữ với nguyên thủy và kiểu object với wrapper class tương ứng
+        // có thể so sánh kiểu dữ nguyên thủy và kiểu object với wrapper class tương ứng
         int num1 = 12;
         Integer num2 = 12;
-        System.out.println(num1 == num2);
+        System.out.println("num1 vs num2: " + (num1 == num2));
         // trường hợp kiểu dữ liệu object là null, chương trình sẽ throw NullPointerException
         Integer num3 = null;
         try{
-            System.out.println(num1 == num3);
+            System.out.println("num1 vs num3: " + (num1 == num3));
         }catch(NullPointerException e){
             System.out.println("NullPointerException caught");
         }
+        
+        // khi copy, biến nguyên thủy tạo ra 2 biến tách biệt
+        // và sự thay đổi của 1 biến không ảnh hưởng đến bến còn lại
+        int num4 = num1;
+        num4 = 13;
+        System.out.println("num1: " + num1);
+        System.out.println("num4: " + num4);
+        // biến object tạo ra 2 biến cùng trỏ về 1 vùng nhớ trong heap,
+        // dẫn đến ảnh hưởng của biến này cũng tác đông đến biến kia
+        int[] arr1 = {1,2,3,4};
+        int [] arr2 = arr1;
+        arr2[0] = 5;
+        System.out.println("arr1: " + Arrays.toString(arr1));
+        System.out.println("arr2: " + Arrays.toString(arr2));
         
     }
 }

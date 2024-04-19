@@ -1,0 +1,21 @@
+
+
+1. Phân biệt kiểu dữ liệu nguyên thủy và dữ liệu object:
+
+    Kiểu dữ liệu nguyên thủy:
+    - Là kiểu dữ liệu dc định nghĩa sắn trong java.
+    - Được lưu trữ trong stack.
+    - Khi copy sẽ tạo ra 2 biến được lưu trữ riêng biệt, sự thay đổi của biến copy ko làm ảnh hưởng đến biến gốc.
+    - Giá trị khởi tạo ko dc phép là null.
+
+    Kiểu dữ liệu object:
+    - Là kiểu dữ liệu dc định nghĩa bởi user.
+    - Được lưu trữ trong bộ nhớ heap với biến tham chiếu dc lưu trữ trong stack.
+    - Khi copy sẽ tạo ra 2 biến tham chiếu tới cùng 1 địa chỉ trong heap, sự thay đổi của biến này cũng sẽ thay đổi biến gốc.
+    - Giá trị khởi tạo có thể là null.
+
+2. Có thể chuyển đổi giữa kiểu dữ liệu nguyên thủy với wrapper class tương ứng thông qua cơ chế autoboxing (primitive-object) và unboxing (object-primitive)
+
+3. Có thể so sánh giữa kiểu dữ liệu nguyên thủy với kiểu object (java sẽ tự động unboxing để so sánh)
+
+4. Giá trị khởi tạo của kiểu nguyên thủy phải là 1 giá trị có nghĩa, giá trị khởi tạo của kiểu object có thể là null.

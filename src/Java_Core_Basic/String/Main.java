@@ -32,7 +32,7 @@ public class Main {
         System.out.println("s6 vs s7: " + s6.compareTo(s7));
         // Sử dụng toán tử == có thể gây sai sót nếu cách thức khởi tạo biến khác nhau
         String s8 = new String("first string");
-        System.out.println("s1 == s4: " + s1 == s4);
-        System.out.println("s1 == s8: " + s1 == s8);
+        System.out.println("s1 == s4: " + (s1 == s4));
+        System.out.println("s1 == s8: " + (s1 == s8));
     }
 }
