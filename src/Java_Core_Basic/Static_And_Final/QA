@@ -1,0 +1,18 @@
+
+
+1. Static:
+    - Từ khóa static dc sử dụng để quản lý bộ nhớ tốt hơn và dc sử dụng trực tiếp thông qua class mà ko cần khởi tạo 1 đối tượng.
+    Static thuộc về lớp chứ ko thuộc về instance của lớp đó.
+    - Các đối tượng static được khởi tạo duy nhất 1 lần trong quá trình khởi tạo chương trình.
+    - Biến static có thể dc truy cập thông qua phương thức static.
+    - Phương thức static có thể truy cập thông qua class.
+    - Phương thức static ko thể gọi được phương thức non-static hoặc sử dụng biến non-static.
+    - Phương thức static ko thể override.
+    - Phương thức static ko thể sử dụng từ this, super.
+
+2. final:
+    - Từ khóa final dc sử dụng để hạn chế thao tác của người dùng, những biến, phương thức, class dc khai báo final sẽ ko thể thay đổi sau khi khởi tạo.
+    - Biến final có thể ko cần khởi tạo khi khai báo, nhưng phải khởi tạo trong constructor và sẽ ko thể thay đổi khi đã khởi tạo giá trị. Biến static bắt buộc phải có
+    giá trị khởi tạo khi khai báo.
+    - 1 phương thức final có thể dc kế thừa nhưng ko thể override.
+    - 1 class final ko thể dc kế thừa.
