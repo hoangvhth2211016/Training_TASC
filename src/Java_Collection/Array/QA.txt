@@ -1,0 +1,45 @@
+
+
+1. Mảng (array):
+
+    - Array là 1 tập hợp các phần tử có cùng kiểu dữ liệu, có thể là dữ liệu nguyên thủy hoặc object, dc lưu trữ gần nhau trong bộ nhớ.
+    - Array có số phần tử cố định và ko thể thay đổi.
+    - Các phần tử của array dc đánh theo chỉ mục (index) với phần tử đầu tiên có index = 0.
+    - Khi mảng dc tạo ra, mỗi phần tử dc gán giá trị mặc định, với kiểu số = 0, kiểu char = '\0', boolean = false, object = null.
+    - Array có thể là mảng 1 chiều hoặc 2 chiều.
+    - Trong java, array có thể khai báo kích thước động, array ko thực sự dc tạo ra trong thời điểm khởi tạo cho đến khi dc khai báo
+    giá trị với kích thước mảng -> array dc khởi tạo trong quá trình run time -> dynamic allocation.
+    - Đối với mảng nhiều chiều, kích thước của hàng cần dc khởi tạo ở thời điểm khởi tạo mảng, kích thước cột có thể dc cấp phát động sau
+    đó với kích thước của mỗi cột có thể là khác nhau (jagged array).
+    - Như các object khác, 1 array dc khai báo là final chỉ có thể khởi tạo 1 lần duy nhất và ko thể gán sang 1 array khác, nhưng các phần
+    tử bên trong array đấy vẫn có thể thay đổi.
+    - Khai báo và khởi tạo array:
+        Với mảng 1 chiều:
+        + type[] name || type name[].
+        + name = new type[]{elements}.
+        + name = new type[size].
+        + name = {elements}.
+        Với mảng nhiều chiều (vd mảng 2 chiều):
+        + type[][] name || type name[][].
+        + name = new type[size_of_rows][size_of_columns] || new type[size_of_rows][]
+        + name = new type[][]{{elements},{elements},...}
+    - Copy array: việc sử dụng toán tử "=" để copy 1 array thực chất sẽ tạo ra 2 biến reference cùng trỏ về 1 đối tượng array trong bộ nhớ
+    -> sự thay đổi array từ biến này cũng sẽ tác động tới biến kia vì thực chất là thay đổi trên 1 array (shallow copy). Để copy toàn diện
+    1 array, có thể gán từng phần tử thuộc array này sang array kia, sử dụng phương thức clone của class Object, sử dụng phương thức arraycopy
+    của lớp System hoắc các phương thức của lớp arrays.
+
+
+2. Ưu và nhược điểm của array:
+
+    Ưu điểm:
+    - Cho phép xử lý nhiều thành phần dữ liệu trong cùng 1 thời điểm.
+    - Hiệu suất truy cập nhanh chóng do mỗi phần tử trong array dc đánh index.
+    - Hỗ trợ mảng đa chiều, cho phép lưu trữ dữ liệu theo dạng bảng nhiều chiều.
+
+    Nhược điểm:
+    - Kích thước của mảng là cố định vào ko thể thay đổi sao khi đã khai báo -> gây khó khăn trong việc thêm, bớt dữ liệu và khai báo
+    với các array ko xác định trc kích thước.
+    - Chỉ chứa 1 kiểu dữ liểu duy nhất.
+
+Bonus: Class Arrays
+    Lớp java.util.Arrays cung cấp những phương thức static cho phép tương tác với array như so sánh, copy, sắp xếp...

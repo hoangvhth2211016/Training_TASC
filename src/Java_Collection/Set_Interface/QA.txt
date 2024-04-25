@@ -1,0 +1,17 @@
+
+
+1. Set: Là 1 interface kế thừa Collection ko thể chứa các giá trị trùng lặp.
+
+2. Các lớp triển khai của Set: HashSet, EnumSet, LinkedHashSet, TreeSet
+    - HashSet:
+        + lưu trữ các phần tử bằng cách sử dụng cơ chế hashing, các phần tử dc tạo ra dc lưu trong 1 hashMap với giá trị ko đổi là PRESENT.
+        + Không đảm bảo thứ tự dc thêm vào.
+        + cho phép chứa phần tử null.
+    - EnumSet:
+        + Sử dụng kiểu Enum.
+    - LinkedHashSet:
+        + kế thừa từ HashSet, đảm bảo thứ tự khi phần tử dc thêm vào.
+    - TreeSet:
+        + Implements Navigable interface và kế thừa từ SortedSet.
+        + Sử dụng TreeMap để lưu trữ các phần tử, các phần tử dc sắp xếp theo thứ tự tự nhiên hoặc bởi comparator dc chỉ định, có thể sử
+        dụng phương thức descendingSet() để lấy thứ tự ngược lại.

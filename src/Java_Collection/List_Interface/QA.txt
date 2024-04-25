@@ -1,0 +1,88 @@
+
+
+1. List Interface:
+
+    - Là 1 trong những interface thuộc java collection framework.
+    - Thứ tự các phần tử dc đảm bảo theo đúng thứ tự chúng dc thêm vào.
+    - Các phần tử có thể dc chèn hoặc truy cập thông qua index.
+    - Trong list các phần tử dc phép trùng nhau.
+    - Kích thước của list có thể thay đổi.
+    - Kiểu dữ liệu bắt buộc phải là kiểu object.
+    - Các phương thức cơ bản:
+        + add(T item): thêm phần tử vào cuối list.
+        + add(int index, T item): thêm phần tử vào vị trí chỉ định trong danh sách.
+        + addAll(Collection<? extends E> c): thêm tất cả các phần tử trong collection vào cuối danh sách.
+        + addAll(int index, Collection<? extends E> c): thêm tất cả các phần tử trong collection vào vị trí chỉ định trong danh sách.
+        + clear(): xóa toàn bộ các phần tử trong danh sách.
+        + contains(T item): kiểm tra danh sách có chứa đối tượng cần tìm hay ko.
+        + containsAll(Collection<? c): kiểm tra danh sách có chứa tất cả các phần tử trong collection hay ko.
+        + equals(T item): so sánh với đối tượng cho trc.
+        + get(int index): trả về phần tử ở vị trí chỉ định.
+        + indexOf(T item): trả về vị trí của phần tử đầu tiên trong danh sách có giá trị bằng đối tượng chỉ định.
+        + lastIndexOf(T item): trả về vị trí của phần tử cuối cùng trong danh sách có giá trị bằng đối tượng chỉ định.
+        + isEmpty(): kiểm tra danh sách có rỗng hay ko.
+        + remove(int index): xóa phần từ có index chỉ định.
+        + remove(T item): xóa item chỉ định.
+        + removeAll(Collection<?> c): xóa tất cả các phần tử trong danh sách có trong collection chỉ định.
+        + retainAll(Collection<?> c): xóa tất cả các phần từ trong danh sách ko có trong collection chỉ định.
+        + set(int index, T item): thay thế phần tử tại vị trí chỉ định trong danh sách bằng 1 phần tử mới.
+        + size(): trả về số lượng phần tử trong danh sách.
+        + sort(Comparator<? super E> c): sắp xếp lại các phần tử trong danh sách bằng comparator chỉ định.
+        + subList(int fromIndex, int toIndex): trả về danh sách con, chứa các phần tử từ vị trí fromIndex đến toIndex-1.
+        + toArray(): chuyển danh sách thành mảng.
+        + toArray(T[] a): chuyển đổi danh sách thành 1 mảng với kiểu phần tử chỉ định.
+
+2. Các lớp triển khai của list:
+
+    ArrayList:
+    - Kế thừa từ lớp AbstractList.
+    - Lớp triển khai list bằng cách sử dụng mảng động để lưu trữ dữ liệu.
+    - Array list có tốc độ thấp hơn array nhưng hữu ích khi cần thao tác thêm, sửa, xóa các phần tử.
+    - ArrayList ko đồng bộ (non-synchronized) -> ko an toàn khi sử dụng trong môi trường đa luồng.
+    - Khởi tạo ArrayList:
+        List<Type> name = new ArrayList<>();
+        ArrayList<Type> name = new ArrayList<>();
+
+    LinkedList:
+    - Kế thừa từ lớp AbstractSequentialList.
+    - Dựa theo cấu trúc dữ liệu danh sách liên kết (linked list).
+    - Các phần từ ko dc lưu trữ liên tiếp trong bộ nhớ mà là 1 đối tượng riêng biệt với địa chỉ riêng biệt.
+    - Mỗi phần tử trong LinkedList dc biểu diễn bằng 1 node, mỗi node chứa dữ liệu của riêng nó và tham chiếu tới node trước, tiếp theo
+    trong list.
+    - Do ko lữu trữ dữ liệu trong 1 mảng liên tục, việc thay đổi dữ liệu dc thực hiện hiệu quả hơn. Khi thực hiện thay đổi chỉ cần thay đổi
+    tham chiếu từ các node liên quan.
+    - Khởi tạo LinkedList:
+        List<Type> name = new LinkedList<>();
+        LinkedList<Type> name = new LinkedList<>();
+    - Các phương thức thêm:
+        + addFirst(T item): thêm phần tử vào đầu danh sách.
+        + addLast(T item): thêm phần tử vào cuối danh sách.
+        + removeFirst(): loại bỏ và trả về phần tử đầu của danh sách.
+        + removeLast(): loại bỏ và trả về phần tử cuối của danh sách.
+        + removeFirstOccurrence(T item): loại bỏ phần tử đầu tiên có giá trị đã cho trong danh sách.
+        + getFirst(): trả về phần tử đầu tiên, throw NoSuchElementException nếu list empty.
+        + getLast(): trả về phần tử cuối cùng, throw NoSuchElementException nếu list empty.
+        + peekFirst(): trả về phần tử đầu tiên, null nếu list empty.
+        + peekLast(): trả về phần tử cuối cùng, null nếu list empty.
+        + pollFirst(): lấy ra phần từ đầu tiên và xóa khỏi danh sách, null nếu list empty.
+        + pollLast(): lấy ra phần tử cuối cùng và xóa khỏi danh sách, null nếu list empty.
+
+
+    Vector:
+    - Có các tính chất tương tự như ArrayList nhưng là đồng bộ.
+    - Khởi tạo Vector:
+        List<Type> name = new Vector<>();
+        Vector<Type> name = new Vector<>();
+
+    Stack:
+    - Có cấu kiểu dữ liệu stack (Last In First Out) mở rộng từ lớp Vector
+    - Lớp stack có 5 phương thức riêng:
+        + empty(): kiểm tra xem stack có rỗng ko.
+        + peek(): trả về phần tử ở trên cùng của stack.
+        + pop(): lấy ra phần từ trên cùng.
+        + push(T item): thêm phần tử vào đầu ngăn xếp.
+        + search(T item): tìm kiếm phần tử và trả về vị trí của nó tính từ đỉnh, trả về -1 nếu ko tồn tại.
+
+    CopyOnWriteArrayList:
+    - Là 1 biến thể threadsafe của ArrayList.
+    - Tất cả các hoạt động thêm, bớt, sửa, xóa đều tạo ra 1 bản sao mới của mảng đó

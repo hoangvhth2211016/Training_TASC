@@ -1,0 +1,41 @@
+
+
+1. Queue và Dequeue:
+
+    Queue:
+    - Là 1 interface trong java collection.
+    - Cho phép lưu trữ dữ liệu dưới dạng queue (First In First Out).
+    - Các phần tử trong queue cho phép trùng lặp và ko thể lưu trữ dữ liệu null.
+    - Kế thừa tất các phương thức từ interface collection.
+    - Cho phép thêm dữ liệu vào cuối queue và lấy dữ liệu ra từ đầu queue.
+    - Các phương thức của Queue:
+        + add(): thêm phần tử vào queue, nếu thành công trả về true, nếu ko thành công, throw exception.
+        + offer(): thêm phần tử vào queue, nếu thành công trả về true, nếu ko thành công, trả về false.
+        + element(): trả về phần đầu của queue, throw exception nếu queue empty.
+        + peek(): trả về phần đầu của queue, trả về null nếu queue empty.
+        + remove(): trả về và xóa phần đầu của queue, throw exception nếu queue empty.
+        + poll(): trả về và xóa phần đầu của queue, trả về null nếu queue empty.
+
+    Deque (double ended queue):
+    - Là interface mở rộng của queue.
+    - Cho phép thêm và loại bỏ phần tử từ cả 2 đầu -> sử dụng như 2 cấu trúc dữ liệu FIFO và LIFO.
+    - Deque có thể có phần tử null, ko nên chèn phần tử null vì nhiều phương thức trả về null để cho biết Deque rỗng.
+    - Ko thể truy xuất hoặc chèn các phần tử ở vị trí bất kỳ của queue.
+    - Các phương thức của deque:
+        + addFirst(), addLast(): thêm phần tử vào đầu hoặc cuối deque, nếu thành công trả về true, nếu ko thành công, throw exception.
+        + offerFirst(), offerLast(): thêm phần tử vào đầu hoặc cuối deque, nếu thành công trả về true, nếu ko thành công, trả về false.
+        + getFirst(), getLast(): trả về đầu hoặc cuối của deque, throw exception nếu empty.
+        + peekFirst(), peekLast(): trả về đầu hoặc cuối của deque, trả về null nếu empty.
+        + removeFirst(), removeLast(): trả về và xóa phần từ đầu hoặc cuối của deque, throw exception nếu empty.
+        + pollFirst(), pollLast(): trả về và xóa phần tử đầu hoặc cuối của deque, trả về null nếu queue empty.
+
+2. Các lớp triển khai của queue và deque:
+
+    Queue: LinkedList, PriorityQueue
+    Deque: LinkedList, ArrayDeque
+    - LinkedList: có thể sử dụng để triển khai cả queue và deque, có thể chưa phần tử null.
+    - PriorityQueue: ko giống như queue thông thường, các phần tử đầu tiên trong priorityQueue dc sắp xếp theo thứ tự, thứ tự sắp xếp có thể dc
+    tùy chỉnh bởi Comparator. Nếu phần tử đầu tiên dc lấy ra, phần tử kế tiếp thỏa mãn yêu cầu của comparator sẽ dc sắp xếp lên đầu.
+    - ArrayDeque: triển khai cả 2 interface queue và deque, ko thể chứa phần tử null, có dung lương nhỏ hơn LinkedList.
+
+

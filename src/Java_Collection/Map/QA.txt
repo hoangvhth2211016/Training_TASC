@@ -1,0 +1,36 @@
+
+
+1. Map:
+
+    - Là 1 interface kế thừa từ collection, cho phép lưu trữ dữ liệu dưới dạng key-value.
+    - 1 Map ko thể chứa các key trùng lặp (unique), mỗi key liên kết với 1 giá trị duy nhất.
+    - Có thể truy cập vào sửa đổi các value bằng cách sử dụng các key liên kết tới chúng.
+    - Các phương thức của Map:
+        + put(K, V): thêm 1 cặp key-value mới vào map. Nếu key đã tồn tại, value mới sẽ ghi đè lên value cũ.
+        + putAll(Map<K,V> map): ghép map chỉ định vào map hiện tại.
+        + get(K): trả về giá trị dc liên kết với key đó, trả về null nếu ko tìm thấy key.
+        + getOrDefault(K, defaultValue): trả về giá trị dc liên kết với key đó, trả về giá trị default nếu ko tìm thấy key.
+        + containsKey(K): kiểm tra xem key đã có trong map chưa.
+        + containsValue(V): kiểm tra xem value đã có trong map chưa.
+        + replace(K, V): thay thế value của key K với value V dc chỉ định, trả về giá trị cũ nếu có thay đổi, null nếu ko có key đó.
+        + replace(K, oldValue, newValue): thay thế value của K với newValue nếu K liên kết với oldValue, trả về false nếu ko thành công.
+        + remove(K): xóa K và value của nó, trả về null nếu ko thành công.
+        + remove(K, V): xóa cặp K-V, trả về false nếu ko thành công.
+        + keySet(): trả về 1 set các key.
+        + value(): trả về 1 collection các value.
+        + entrySet(): trả về 2 set các entry của map.
+
+2. Các lớp kế thừa từ map:
+
+    HashMap, LinkedHashMap, TreeMap
+    HashMap:
+    - Sử dụng hashfunction để map key tới index trong hash table lưu trữ map.
+    - Cho phép giá trị null và key null.
+    - Ko có thứ tự (unordered).
+
+    LinkedHashMap:
+    - Tương tự HashMap nhưng bổ sung thêm tính năng duy trì thứ tự chèn vào map.
+
+    TreeMap:
+    - TreeMap dc sử dụng để triển khai Map interface và NavigableMap. TreeMap sắp xếp các phần tử theo thứ tự tự nhiên dựa vào key
+    hoặc bởi comparator dc chỉ định.

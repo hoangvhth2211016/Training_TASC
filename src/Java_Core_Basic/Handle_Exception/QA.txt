@@ -8,7 +8,7 @@
     - Throw dc dùng bên trong method.
 
     Throws:
-    - Dc sử dụng để khai báo các exceptions có thể ném ra bởi method.
+    - Dc sử dụng để khai báo các exception method.
     - Theo sau throws là tên class của các exceptions.
     - Throws dc viết trên phần khai báo phương thức.
 
