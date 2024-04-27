@@ -1,0 +1,36 @@
+
+
+1. Synhronous và asynchronous:
+
+    Synchronous: trong quá trình đồng bộ, các tác vụ dc thực thi tuần tự, tác vụ sau phải chờ tác vụ trc hoàn thành.
+    Asynchronous: trong quá trình bất đồng bộ, tác vụ sau có thể thực thi mà ko cần phải chờ tác vụ trc hoàn thành.
+
+2. Phân biệt trường hợp sử dụng, ưu nhược điểm của async và sync:
+    Async: Thường dc sử dụng khi cần phải xử lý các tác vụ tiêu tốn nhiều thời gian, các tác vụ cần phải xảy ra đồng thời
+    mà ko muốn chương trình bị chặn.
+    - Ưu điểm:
+        + Tối ưu hiệu suất của chương trình.
+        + Tiết kiệm tài nguyên hệ thống.
+    - Nhược điểm:
+        + Khó khăn trong việc debug và maintain.
+        + Khả năng gặp lỗi cao nếu ko biết sử dụng đúng cách (race condition, deadlock ...).
+        + Khó khăn trong việc đồng bộ dữ liệu.
+
+    Sync: thường dc sử dụng với các tác vụ đơn giản, các tác vụ cần độ chính xác cao, các tác vụ cần dc xử lý 1 cách
+    tuần tự.
+    - Ưu điểm:
+        + Dễ dàng quản lý luồng.
+        + Dễ dàng phát hiện và xử lý lỗi.
+        + Tránh các vấn đề liên quan đến đồng bô dữ liệu.
+    - Nhược điểm:
+        + Gây chậm chễ khi làm việc với các tác vụ cần nhiều thời gian.
+        + Ảnh hưởng đến trải nghiệm ng dùng.
+
+3. Từ khóa synchronized:
+    - Dc sử dụng để đồng bộ hóa truy cập vào các phương thức hoặc khối mã. Khi sử dụng synchronized, chỉ 1 luồng có thể
+    truy cập vào phương thức hoặc khối lệnh tại 1 thời điểm -> đảm bảo tính đông bộ và tránh các vấn đề liên quan đến đọc,
+    ghi dữ liệu đồng thời từ nhiều luồng.
+    - Có 3 phương án triển khai synchronized:
+        + synchronized method: khóa đồng bộ trên toàn bộ phương thức của instance.
+        + synchronized block: khóa 1 khối lệnh trong phương thức.
+        + synchronized static method: khóa trên toàn bộ phương thức của class.

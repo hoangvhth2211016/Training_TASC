@@ -1,0 +1,56 @@
+
+
+1. Process:
+    - Process (tiến trình) dc hiểu là 1 chương trình đang chạy.
+    - Các process dc quản lý bởi hệ điều hành.
+    - Mỗi process có một ko gian khác nhau, vùng nhớ khác nhau -> độc lâp với nhau.
+    - Đa nhiệm dựa trên process cho phép máy tính chạy nhiều chương trình đồng thời.
+    - Một process có: không gian địa chỉ, biến global, xử lý tín hiệu, tiến trình con, thông tin tính toán.
+
+2. Thread:
+    - Thread (luồng) là 1 tiến trình con (sub-process) giúp xử lý các tác vụ trong chương trình.
+    - Mỗi thread thực hiện 1 công việc riêng biệt và dc quản lý bởi JVM.
+    - Tất cả các thread thuộc cùng 1 process chia sẻ cùng 1 ko gian, vùng nhớ với nhau.
+    - Một thread có: thanh ghi, trạng thái, stack, bộ đếm chương trình.
+
+3. Các cách tạo thread:
+    - Tạo class kế thừa class Thread, tạo instance của lớp này và gọi phương thức start().
+    - implements interface Runnable, tạo intance của lớp Thread, truyền lớp triển khai của Runnable vào instance và gọi phương thức start().
+    - implements interface Callable và submit nó vào trong 1 thread pool dc tạo ra bởi Executor Framework, kết quả trả về là 1 đối tượng
+    future trong java.
+    - Sử dụng lớp CompletableFuture.
+
+    Sự khác biệt:
+    - 1 lớp kế thừa từ lớp Thread ko cho phép kế thừa các lớp khác.
+    - 1 lớp triển khai Runnable có thể kế thừa từ 1 các lớp khác.
+    - Sử dụng lớp triển khai của Runnable tạo nên sự linh động trong việc thực thi phương thức run() của thread, cũng như cho phép
+    truyền đối tượng của lớp triển khai này vào nhiều thread khác nhau.
+    - Với cách triển khai thông qua Thread và Runnable, ng dùng phải tự quản lý thread, với Callable các thread tạo ra dc quản lý bởi thread
+    pool.
+    - Callable tương tự như Runable nhưng cho phép kết quả trả về.
+    - CompletableFuture implement từ interface Future, cung cấp các phương thức để tạo, nối tiếp và kết hợp nhiều Future, xử lý ngoại lệ...
+
+
+4. Multiple thread:
+    - Đa luồng (multiple thread) là quá trình 1 tiến trình có thể thực thi nhiều tác vụ riêng biệt đồng thời trên nhiều luồng khác nhau.
+    - Ưu điểm:
+        + Tăng hiệu suất: cho phép xử lý nhiều công việc đồng thời.
+        + Tăng khả năng mở rộng: giúp cải thiện khả năng mở rộng bằng cách phân chia công việc thành nhiều tác vụ nhỏ và cho phép xử lý trên
+        nhiều luồng khác nhau.
+        + Tối ưu trong việc sử dụng tài nguyên hệ thống.
+    - Nhược điểm:
+        + Khó khăn trong việc debug và maintain.
+        + Khó khăn trong đồng bộ hóa dữ liệu.
+
+5. Với Future:
+    - Sử dụng isDone() để kiểm tra xem thread đã hoàn thành chưa.
+    - Sử dụng get() để lấy kết quả trả về.
+    - Sử dụng isCancelled() để kiểm tra xem task có bị hủy ko.
+   Với CompletableFuture:
+    - Sử dụng thenAccept() hoặc thenRun() để thực thi hành động cuối trc khi task hoàn thành.
+    - sử dụng join() hoặc get() để nhận kết quả trả về sau task, với get() sẽ ném ra ExecutionException nếu task có exception.
+    - Sử dụng allOf() để thông báo chờ nhiều thread hoàn thành.
+
+
+6. Giới hạn về số lượng thread phụ thuộc vào tài nguyên máy tính nhưng việc tạo ra quá nhiều thread cũng có thể gây crash. Việc sử dụng
+    thread và quản lý tài nguyên cần dc cân nhắc kỹ lưỡng.

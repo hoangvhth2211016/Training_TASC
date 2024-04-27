@@ -34,16 +34,19 @@ public class Main {
         PriorityQueue<Integer> prio = new PriorityQueue<>();
         prio.add(5);
         prio.add(1);
+        prio.add(2);
         prio.add(4);
         System.out.println(prio);
         // phần tử đầu tiên dc sắp xếp lại
         prio.poll();
         System.out.println(prio);
+        prio.add(1);
+        System.out.println(prio);
     }
     
     public static void main(String [] args){
-        //priorityQueue();
-        deque();
+        priorityQueue();
+        //deque();
     }
     
     
