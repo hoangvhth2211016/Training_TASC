@@ -1,0 +1,4 @@
+
+
+1. Singleton:
+    Singleton là 1 Creational Pattern, đảm bảo chỉ có duy nhất 1 instance của 1 class và có thể truy cập mọi nơi trong chương trình.
