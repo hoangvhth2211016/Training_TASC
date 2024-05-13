@@ -55,14 +55,13 @@ public class Main {
     
     public static void copyArray(){
         int[] arr1 = {1,2,3};
-        int[] arr2 = arr1;
         
         // sự thay đổi trong arr2 cũng là thay đổi trong arr1
-        arr2[0] = 0;
+        arr1[0] = 0;
         System.out.println("arr1: ");
         printIntArr(arr1);
         System.out.println("arr2: ");
-        printIntArr(arr2);
+        printIntArr(arr1);
         
         // sử dung clone
         int[] arr3 = arr1.clone();

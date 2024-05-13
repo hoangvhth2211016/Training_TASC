@@ -1,0 +1,118 @@
+
+
+Query:
+
+1. Trình tự thực thi các thành phần:
+
+    from-join -> where -> group by -> having -> select -> order by -> limit/offset
+    - from-join: from chọn bảng chính sao đó join các bảng khác vào.
+    - where: giới hạn dữ liệu của bảng dc chọn trc đó theo điều kiện.
+    - group by: nhóm các bản ghi giống nhau của cột (đã dc lọc qua bởi where),
+    dc sử dụng cùng với các hàm tổng hợp như sum(), count(), max(), min(), avg()
+    - having: giống như where nhưng để lọc các phần tử sau khi đã qua group by.
+    - select: chỉ định các cột muốn lấy.
+    - order by: sắp xếp các giá trị theo thứ tự
+    - limit/offset: limit lấy tối đa các dòng theo số lượng dc chỉ định, offset bỏ qua các dòng theo số lượng dc chỉ định
+
+2. Các loại join:
+
+    - inner join: trả về các bản ghi chung của 2 bảng.
+    - left join: trả về các bản ghi của bảng bên trái trong điều kiện on và các bản ghi chung.
+    - right join: trả về các bản ghi của bảng bên phải trong điều kiện on và các bản ghi chung.
+    - full join: trả về tất cả các bản ghi của cả 2 bảng.
+    - cross join: trả về 1 tổ hợp các bản ghi của cả 2 bảng. Số lượng các bản ghi bằng tích số lượng các bản ghi của mỗi bảng.
+    - self join: trả về các bản ghi khớp điều kiện khi 1 bảng dc join với chính nó.
+
+3. Subquery:
+
+    - Là 1 truy vấn con dc nhúng bên trong 1 truy vấn khác. Dc sử dụng để lấy các dữ liệu sẽ dc sử dụng trong query chính (outer query).
+    - Có thể sử dụng bên trong các lệnh select, insert, update, delete và các điều kiện from, where, join, having.
+    - Được sử dụng 1 lần tại nơi truy vấn.
+    - Thường dc sử dụng khi cần trả về một tập hợp con hoặc thực hiện 1 tính toán nhỏ sử dụng trong truy vấn chính.
+    - Có 2 loại subquery:
+        + subquery độc lập: ko phụ thuộc vào giá trị của query bên ngoài.
+        + subquery phụ thuộc: phụ thuộc vào giá trị của query bên ngoài.
+
+4.CTE (common table expression):
+
+    - Cho phép đặt tên và dùng 1 bảng tạm thời trong phạm vi 1 câu truy vấn cụ thể.
+    - Bắt đầu bằng with (tên CTE) (các cột) as (câu lệnh truy vấn của CTE).
+    - Có thể dc sử dụng lại nhiều lần trong câu truy vấn chính.
+    - Có thể tạo ra nhiều CTE trong 1 câu truy vấn.
+    - Sử dụng khi cần tạo truy vấn đệ quy (khi làm việc với dữ liệu phân cấp).
+
+5. Ranking:
+
+    - ROW_NUMBER(): là 1 hàm dùng để đánh số các bản ghi trong 1 tập kết quả bắt đầu từ 1 và tăng dần, ko quan tâm kết quả có
+     giống nhau hay ko. Đi kèm với từ khóa over (order by ) để gán số thứ tự cho bản ghi theo thứ tự xác định.
+    - RANK(): gần giống với ROW_NUMBER() về cú pháp và thứ tự đánh số, nhưng nếu có các giá trị bằng nhau, thì các dòng có giá trị
+    bằng nhau nhận chung 1 số xếp hạng, số xếp hạng tiếp theo là số thứ tự của phần tử có giá trị tiếp theo trong sắp xếp.
+    - DENSE_RANK(): gần giống với RANK(), điểm khác biệt là số xếp hạng tiếp theo là tiếp nối của số xếp hạng trc.
+
+6. View:
+
+    - View là 1 bảng ảo trong cơ sở dữ liệu có nội dung dc định nghĩa thông qua 1 câu lệnh SQL từ trc.
+    - View dc sử dụng để hạn chế truy cập ở các permission khác nhau, giúp che giấu thông tin.
+    - Ko thể CRUD trên view.
+
+7. Procedure:
+
+    - Bao gồm các câu lệnh Transact-SQL dc biên dịch và lưu lại trong cơ sở dữ liệu -> tăng tính tái sử dụng,
+    thực thi mã nhanh hơn và giảm tải băng thông.
+    - Có thể truyền tham số.
+    - Bảo mật: người dùng chỉ có thể truy cập và thực thi câu lệnh 1 cách gián tiếp thông qua proc.
+    - Stored ko yêu cầu giá trị trả về nhưng có thể trả về giá trị thông qua tham số đầu ra out hoặc thực thi select, set.
+    - Stored có thể xử lý lỗi và ngoại lệ trong qua trình thực thi bằng try_catch.
+    - Sử dụng CallableStatement để gọi proc trong java.
+
+8. Index:
+
+    Clustered index:
+    - Là 1 loại index trong đó dữ liệu trong bảng dc tổ chức trên đĩa cứng theo thứ tự của các khóa trong index -> Chỉ có 1
+    clustered index trong bảng.
+    - Ko đòi hỏi trường cần đánh index là unique nhưng khi nó không duy nhất thì khóa index được gắn thêm một giá trị
+    4-byte ngẫu nhiên để đảm bảo các node index vẫn là duy nhất.
+    - Dạng Index này sẽ lưu trực tiếp vào trong bảng theo trường được đánh INDEX.
+    - Thường được tạo ra khi bảng có Primary Key.
+
+    Non-Clustered index:
+    - 1 non-clustered index sẽ dc lưu ra 1 nơi hoàn toàn tách biệt so với bảng cơ sở.
+    - Ko sắp xếp dữ liệu khi lưu.
+    - chứa giá trị của index cùng với một con trỏ trực tiếp đến vị trí của hàng dữ liệu trong bảng.
+
+    Giới hạn về số lượng index trong 1 bảng:
+    - Ko có giới hạn cụ thể về số lượng index có trong 1 bảng, nhưng việc tạo ra quá nhiều index có thể ảnh hưởng tới hiệu suất
+    của db, đặc biệt trong các trường hợp thêm, sửa, xóa dữ liệu.
+
+    Cơ sở của việc đánh index:
+
+
+    Sử dụng câu lệnh EXPLAIN hoặc EXPLAIN ANALYZE trước câu truy vấn để hiển thị kế hoạch thực thi của truy vấn và xem xem index
+    nào được sử dụng trong quá trình thực thi.
+
+9. Partition:
+    Partitioning là kỹ thuật phân chia bảng lớn thành các phân vùng nhỏ theo 1 quy tắc chung gọi là partition function.
+
+    Khi nào đánh partition trong một bảng:
+    - Khi bảng chứa một lượng rất lớn dữ liệu và phải xử lý các truy vấn phức tạp trên dữ liệu đó.
+    - Khi muốn cải thiện hiệu suất của các truy vấn bằng cách phân chia dữ liệu thành các phần nhỏ hơn, dễ quản lý và truy cập.
+    - Khi cần thực hiện các thao tác quản lý dữ liệu như backup, restore, và maintenance mà không ảnh hưởng đến toàn bộ bảng.
+
+    Lợi ích của việc đánh partition cho truy vấn:
+    - Tăng hiệu suất truy vấn: Partitioning cho phép cơ sở dữ liệu tối ưu hóa truy vấn bằng cách giảm thời gian tìm kiếm và lượng dữ liệu cần xử lý.
+    - Quản lý dữ liệu dễ dàng hơn bằng cách phân chia nó thành các phần nhỏ hơn.
+    - Thực hiện backup và restore dễ dàng hơn.
+
+    Cách đánh partition trong một bảng:
+    - Tạo file group.
+    - Tạo partition function để định nghĩa logic trong quy định dữ liệu dc lấy từ đâu đến đâu.
+    - Tạo partition scheme.
+    - Tạo partition table dựa trên scheme.
+
+    Lưu ý khi đánh partition:
+    - Cần xác định kỹ lưỡng các tiêu chí phân chia dữ liệu để đảm bảo rằng mỗi partition có kích thước và dữ liệu tương đối
+    như nhau.
+    - Cần kiểm tra các ràng buộc và quyền truy cập khi thực hiện partition để đảm bảo tính an toàn và bảo mật của dữ liệu.
+    - Cần xác định cẩn thận kích thước của mỗi partition để tránh việc quản lý dữ liệu trở nên phức tạp và tốn tài nguyên.
+    - Việc đánh partition không cẩn thận có thể gây ra vấn đề về hiệu suất truy vấn, dung lượng lưu trữ không cân đối,
+    hoặc khó khăn trong việc quản lý dữ liệu.
